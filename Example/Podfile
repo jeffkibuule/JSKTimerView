@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'JSKTimerView', :exclusive => true do
+  pod "JSKTimerView", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "JSKTimerView", :path => "../"
+
+  
+end
