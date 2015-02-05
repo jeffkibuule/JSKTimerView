@@ -101,6 +101,6 @@ JSKTimerView is available under the MIT license. See the LICENSE file for more i
 *Please provide attribution, it is greatly appreciated.*
 
 [img0]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img0.png
-[img1]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/Pod/Assets/img1.png
-[img2]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/Pod/Assets/img2.png
-[img3]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/Pod/Assets/img3.png
+[img1]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img1.png
+[img2]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img2.png
+[img3]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img3.png
