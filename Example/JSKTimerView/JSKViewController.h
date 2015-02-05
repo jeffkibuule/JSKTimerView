@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <JSKTimerView/JSKTimerView.h>
 
-@interface JSKViewController : UIViewController <JSKTimerViewDelegate>
+@interface JSKViewController : UIViewController <JSKTimerViewDelegate, UIAlertViewDelegate>
 
 @end
