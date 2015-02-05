@@ -95,11 +95,6 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
-    
-    [self addConstraints:@[centerXConstraint, centerYConstraint]];
-    
     self.timerProgressLayer.frame = self.bounds;
 }
 
@@ -287,6 +282,11 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     self.timerLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self addSubview:self.timerLabel];
+    
+    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+    
+    [self addConstraints:@[centerXConstraint, centerYConstraint]];
 }
 
 - (void)createLayer {
