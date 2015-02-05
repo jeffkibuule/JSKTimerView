@@ -6,6 +6,6 @@ end
 
 target 'Tests', :exclusive => true do
   pod "JSKTimerView", :path => "../"
-
+  pod "OCMock"
   
 end

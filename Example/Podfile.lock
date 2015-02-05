@@ -1,0 +1,17 @@
+PODS:
+  - JSKTimerView (0.1.0)
+  - OCMock (3.1.2)
+
+DEPENDENCIES:
+  - JSKTimerView (from `../`)
+  - OCMock
+
+EXTERNAL SOURCES:
+  JSKTimerView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JSKTimerView: b4c2102366df98f8f9aa26980c42f0c47ed05873
+  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
+
+COCOAPODS: 0.35.0
