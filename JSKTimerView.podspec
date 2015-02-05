@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = "JSKTimerView"
-  s.version          = "0.1.0"
-  s.summary          = "A simple custom UIView that acts as a timer."
+  s.version          = "0.1.1"
+  s.summary          = "A simple custom UIView that acts as a self-contained, animating timer."
   s.homepage         = "https://github.com/jeffkibuule/JSKTimerView"
-  s.screenshots      = ['https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot0.png']
+  s.screenshots      = ['https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot0.png', 'https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot1.png', 'https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot2.png', 'https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot3.png']
   s.license          = 'MIT'
   s.author           = { "Joefrey Kibuule" => "jeff.kibuule@outlook.com" }
   s.source           = { :git => "https://github.com/jeffkibuule/JSKTimerView.git", :tag => s.version.to_s }

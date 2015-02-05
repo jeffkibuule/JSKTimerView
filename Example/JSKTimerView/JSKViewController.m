@@ -8,7 +8,10 @@
 
 #import "JSKViewController.h"
 
+
+
 @interface JSKViewController ()
+@property (weak, nonatomic) IBOutlet JSKTimerView *timerView;
 
 @end
 
@@ -17,13 +20,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    // Start timer
+    [self.timerView startTimerWithDuration:60];
+    
+    // Pause timer after 10 seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.timerView pauseTimer];
+    });
+    
+    // Start timer again after 15 seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.timerView startTimer];
+    });
+    
+    // Stop timer after 20 seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.timerView stopTimer];
+    });
+    
+    // Reset timer back to original value after 25 seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.timerView resetTimer];
+    });
+    
+    // Restart timer after 30 seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(30 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.timerView restartTimer];
+    });
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - JSK Timer View Delegate 
+
+- (void)timerDidFinish {
+    // Show an alert when timer finishes
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Timer finished!" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"Timer finished!");
+    }]];
 }
+
 
 @end
