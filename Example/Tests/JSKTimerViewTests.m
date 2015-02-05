@@ -188,7 +188,7 @@
 - (void)testThatDelegateFiresWhenTimerIsFinished {
     // Given
     JSKTimerView *timerView = [[JSKTimerView alloc] init];
-    [timerView setTimerWithDuration:3];
+    [timerView setTimerWithDuration:2];
     XCTestExpectation *expectation = [self expectationWithDescription:@"timerDidFinish"];
     
     // When
@@ -200,7 +200,7 @@
     [timerView startTimer];
     
     // Then
-    [self waitForExpectationsWithTimeout:4.0 handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:3.0 handler:^(NSError *error) {
         if (error) {
             NSLog(@"Timer view did not call delegate with method timerDidFinish within expected time, got error: %@", error);
         }
