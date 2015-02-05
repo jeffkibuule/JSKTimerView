@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JSKTimerView"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "A simple custom UIView that acts as a self-contained, animating timer."
   s.homepage         = "https://github.com/jeffkibuule/JSKTimerView"
   s.screenshots      = ['https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot0.png', 'https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot1.png', 'https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot2.png', 'https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Screenshots/screenshot3.png']
