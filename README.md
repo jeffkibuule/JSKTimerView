@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/JSKTimerView.svg?style=flat)](http://cocoadocs.org/docsets/JSKTimerView)
 [![Platform](https://img.shields.io/cocoapods/p/JSKTimerView.svg?style=flat)](http://cocoadocs.org/docsets/JSKTimerView)
 
+![GIF][gif0]
+
 ![Screenshot0][img0] 
 ![Screenshot1][img1]
 ![Screenshot2][img2]
@@ -100,6 +102,7 @@ JSKTimerView is available under the MIT license. See the LICENSE file for more i
 
 *Please provide attribution, it is greatly appreciated.*
 
+[gif0]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/jsktimerview.gif
 [img0]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img0.png
 [img1]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img1.png
 [img2]:https://raw.githubusercontent.com/jeffkibuule/JSKTimerView/master/Pod/Assets/img2.png
