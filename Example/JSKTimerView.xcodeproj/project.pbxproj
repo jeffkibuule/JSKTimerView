@@ -10,6 +10,7 @@
 		08BEF3F9F4A08454483943DA /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5578458F3FC5DE531F84E1 /* libPods-Tests.a */; };
 		1E2CB9B99ACFD6CCAA08803E /* libPods-JSKTimerView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D323A68F7570B2A6C14DC75B /* libPods-JSKTimerView.a */; };
 		1F50098F1A83139100B13163 /* JSKTimerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50098E1A83139100B13163 /* JSKTimerViewTests.m */; };
+		1FC243F11A8C6A8100EF71FF /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC243F01A8C6A8100EF71FF /* Launch Screen.xib */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		09D758961A9A1173EF3CDB96 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F50098E1A83139100B13163 /* JSKTimerViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSKTimerViewTests.m; sourceTree = "<group>"; };
+		1FC243F01A8C6A8100EF71FF /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		22D8E9E5F6599F990F0A4D95 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		24A07AE1DDBB1C69BA0F54AE /* JSKTimerView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JSKTimerView.podspec; path = ../JSKTimerView.podspec; sourceTree = "<group>"; };
 		3A2BD1F6BF03EF41B2B12120 /* Pods-JSKTimerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSKTimerView.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSKTimerView/Pods-JSKTimerView.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				6003F59D195388D20070C39A /* JSKAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
+				1FC243F01A8C6A8100EF71FF /* Launch Screen.xib */,
 				6003F5A5195388D20070C39A /* JSKViewController.h */,
 				6003F5A6195388D20070C39A /* JSKViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -280,6 +283,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				1FC243F11A8C6A8100EF71FF /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
