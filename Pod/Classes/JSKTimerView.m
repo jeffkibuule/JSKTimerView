@@ -104,7 +104,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     self.remainingTimeInSeconds = durationInSeconds;
     self.totalTimeInSeconds = durationInSeconds;
     
-    [self setTimerProgress:1 animated:NO];
+    [self setProgress:1 animated:NO];
     [self updateLabel];
     [self setNeedsDisplay];
 }
@@ -178,13 +178,13 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
         self.remainingTimeInSeconds = (NSInteger)(self.totalTimeInSeconds * progress);
         [self.timerProgressLayer removeAnimationForKey:jsk_progressAnimationKey];
         
-        [self setTimerProgress:progress animated:NO];
+        [self setProgress:progress animated:NO];
     } else {
         [self stopTimer];
     }
 }
 
-- (void)setTimerProgress:(CGFloat)progress animated:(BOOL)animated {
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated {
     
     progress = [self sanitizeProgressValue:progress];
     
@@ -327,7 +327,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 
 - (void)updateProgress {
     CGFloat progress = ((CGFloat)(self.remainingTimeInSeconds) / self.totalTimeInSeconds);
-    [self setTimerProgress:progress animated:YES];
+    [self setProgress:progress animated:YES];
 }
 
 - (void)setTimerProgressColor:(UIColor *)timerProgressColor {
