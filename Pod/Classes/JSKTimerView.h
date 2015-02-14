@@ -39,7 +39,10 @@
  `JSKTimerView` is a custom UIView class which represents a simple, self-contained timer with different color states based on how close the timer is to finishing.
  */
 @interface JSKTimerView : UIView
-
+/**
+The timer label used to show remaining time left
+*/
+@property (nonatomic, strong) UILabel *timerLabel;
 /**
  The current timer progress with a range between 0 and 1
  */

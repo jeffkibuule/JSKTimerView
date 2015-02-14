@@ -40,7 +40,6 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 @property (nonatomic, strong) UIColor *timerProgressAlmostFinishedColor;
 @property (nonatomic, strong) UIColor *timerProgressFinishedColor;
 
-@property (nonatomic, strong) UILabel *timerLabel;
 @property (nonatomic, strong) UIBezierPath *timerStrokePath;
 @property (nonatomic, strong) CAShapeLayer *timerProgressLayer;
 
