@@ -314,8 +314,10 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     NSInteger numMinutes = (self.remainingTimeInSeconds - numHours * 3600) / 60;
     NSInteger numSeconds = self.remainingTimeInSeconds % 60;
     
-    if (numHours > 0) {
+    if (numHours > 9) {
         self.timerLabel.text = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)numHours, (long)numMinutes, (long)numSeconds];
+    } else if (numHours > 0) {
+        self.timerLabel.text = [NSString stringWithFormat:@"%01ld:%02ld:%02ld", (long)numHours, (long)numMinutes, (long)numSeconds];
     } else if (numMinutes > 0) {
         self.timerLabel.text = [NSString stringWithFormat:@"%01ld:%02ld", (long)numMinutes, (long)numSeconds];
     } else {
