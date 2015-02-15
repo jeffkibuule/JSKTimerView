@@ -311,7 +311,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 
 - (void)updateLabel {
     NSInteger numHours = self.remainingTimeInSeconds / 3600;
-    NSInteger numMinutes = (self.remainingTimeInSeconds - numHours * 3600) / 60;
+    NSInteger numMinutes = (self.remainingTimeInSeconds % 3600) / 60;
     NSInteger numSeconds = self.remainingTimeInSeconds % 60;
     
     if (numHours > 9) {
