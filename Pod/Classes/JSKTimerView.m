@@ -310,9 +310,9 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 #pragma mark - Private Update UI Methods
 
 - (void)updateLabel {
-    NSInteger numSeconds = self.remainingTimeInSeconds % 60;
-    NSInteger numMinutes = self.remainingTimeInSeconds / 60;
     NSInteger numHours = self.remainingTimeInSeconds / 3600;
+    NSInteger numMinutes = (self.remainingTimeInSeconds - numHours * 3600) / 60;
+    NSInteger numSeconds = self.remainingTimeInSeconds % 60;
     
     if (numHours > 0) {
         self.timerLabel.text = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)numHours, (long)numMinutes, (long)numSeconds];
