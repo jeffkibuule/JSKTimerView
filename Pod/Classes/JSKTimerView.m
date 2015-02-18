@@ -105,7 +105,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     self.totalTimeInSeconds = durationInSeconds;
     
     [self setProgress:1 animated:NO];
-    [self updateLabel];
+    [self updateLabelText];
     [self setNeedsDisplay];
 }
 
@@ -135,7 +135,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     self.progressColor = self.progressFinishedColor;
    
-    [self updateLabel];
+    [self updateLabelText];
     [self updateProgress];
     [self setNeedsDisplay];
 }
@@ -145,7 +145,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     [self pauseTimer];
     
-    [self updateLabel];
+    [self updateLabelText];
     [self updateProgress];
     [self setNeedsDisplay];
 }
@@ -217,7 +217,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     _progress = progress;
     
-    [self updateLabel];
+    [self updateLabelText];
 }
 
 #pragma mark - Private Timer Methods
@@ -243,7 +243,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
         [self updateProgress];
     }
     
-    [self updateLabel];
+    [self updateLabelText];
     [self setNeedsDisplay];
 }
 
@@ -309,7 +309,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 
 #pragma mark - Private Update UI Methods
 
-- (void)updateLabel {
+- (void)updateLabelText {
     NSInteger numHours = self.remainingTimeInSeconds / 3600;
     NSInteger numMinutes = (self.remainingTimeInSeconds % 3600) / 60;
     NSInteger numSeconds = self.remainingTimeInSeconds % 60;
