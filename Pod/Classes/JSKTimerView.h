@@ -58,6 +58,11 @@
 @property (readonly, nonatomic, getter=isFinished) BOOL finished;
 
 /**
+ The text color of the UILabel with the time remaining
+ */
+@property (nonatomic, strong) UIColor *labelTextColor;
+
+/**
  The delegate called when the timer has naturally finished
  */
 @property (nonatomic, weak) id<JSKTimerViewDelegate> delegate;

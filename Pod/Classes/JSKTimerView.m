@@ -337,6 +337,12 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     [self setNeedsDisplay];
 }
 
+- (void)setLabelTextColor:(UIColor *)color {
+    _labelTextColor = color;
+    self.timerLabel.textColor = color;
+    [self.timerLabel setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
