@@ -93,6 +93,16 @@
  */
 - (void)startTimerWithDuration:(NSInteger)durationInSeconds;
 
+
+/**
+ Starts the timer with a given end date.
+ 
+ @param endDate The date the timer should end.
+ 
+ @return Returns true if the given date is in the future
+ */
+- (BOOL)startTimerWithEndDate:(NSDate *)endDate;
+
 /**
  Pauses the timer.
  

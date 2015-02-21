@@ -122,6 +122,23 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     [self startTimer];
 }
 
+- (BOOL)startTimerWithEndDate:(NSDate *)endDate {
+    NSDate *currentDate = [NSDate date];
+    
+    if ([currentDate compare:endDate] == NSOrderedAscending) {
+        NSTimeInterval timeInterval = [endDate timeIntervalSinceReferenceDate] - [currentDate timeIntervalSinceReferenceDate];
+        timeInterval = round(timeInterval);
+        
+        if (timeInterval > 1) {
+            [self startTimerWithDuration:timeInterval];
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 - (void)pauseTimer {
     [self invalidateTimer];
     
