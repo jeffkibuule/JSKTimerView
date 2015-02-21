@@ -205,7 +205,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     if (progress > 0.4) {
         self.progressColor = self.progressStartColor;
-    } else if (progress > 0.15) {
+    } else if (progress > 0.15 && self.remainingTimeInSeconds != 1) {
         self.progressColor = self.progressNearFinishedColor;
     } else if (progress == 0) {
         self.progressColor = self.progressFinishedColor;
