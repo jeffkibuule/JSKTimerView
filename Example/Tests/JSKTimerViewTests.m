@@ -48,7 +48,7 @@
     [timerView setTimerWithDuration:5];
     
     // Then
-    XCTAssertFalse(timerView.isRunning, "Timer view should not be running without startTimer");
+    XCTAssertFalse(timerView.isRunning, "Timer view should not be running without call to `startTimer`");
 }
 
 - (void)testThatSetProgressCantBeBelowZero {
@@ -99,8 +99,8 @@
     [timerView startTimer];
     
     // Then
-    XCTAssertTrue(timerView.isRunning, "Timer view should be running after call to startTimer");
-    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to startTimer");
+    XCTAssertTrue(timerView.isRunning, "Timer view should be running after call to `startTimer`");
+    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to `startTimer`");
     
     // Cleanup
     [timerView stopTimer];
@@ -114,8 +114,38 @@
     [timerView startTimerWithDuration:5];
     
     // Then
-    XCTAssertTrue(timerView.isRunning, "Timer view should be running after call to startTimerWithDuration");
-    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to startTimerWithDuration");
+    XCTAssertTrue(timerView.isRunning, "Timer view should be running after call to `startTimerWithDuration`");
+    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to `startTimerWithDuration`");
+    
+    // Cleanup
+    [timerView stopTimer];
+}
+
+- (void)testThatStartTimerWithEndDateInFutureTriggersTimerToRun {
+    // Given
+    JSKTimerView *timerView = [[JSKTimerView alloc] init];
+    
+    // When
+    BOOL dateInFuture = [timerView startTimerWithEndDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    // Then
+    XCTAssertTrue(dateInFuture, "Timer view should return true if call to `startTimerWithEndDate` date is in future");
+    XCTAssertTrue(timerView.isRunning, "Timer view should be running after call to `startTimerWithEndDate` date if date is in future");
+    
+    // Cleanup
+    [timerView stopTimer];
+}
+
+- (void)testThatStartTimerWithEndDateNotInFutureDoesntTriggerTimerToRun {
+    // Given
+    JSKTimerView *timerView = [[JSKTimerView alloc] init];
+    
+    // When
+    BOOL dateInFuture = [timerView startTimerWithEndDate:[NSDate dateWithTimeIntervalSinceNow:-5]];
+    
+    // Then
+    XCTAssertFalse(dateInFuture, "Timer view should return false if call to `startTimerWithEndDate` date is not in future");
+    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to `startTimerWithEndDate` date is not in future");
     
     // Cleanup
     [timerView stopTimer];
@@ -131,8 +161,12 @@
     [timerView pauseTimer];
     
     // Then
-    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to pauseTimer");
-    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to pauseTimer");
+    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to `pauseTimer`");
+    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to `pauseTimer`");
+    XCTAssertGreaterThan([timerView remainingDurationInSeconds], 0, "Timer view should have remaining seconds greater than zero after immediate call to `pauseTimer`");
+    
+    // Cleanup
+    [timerView stopTimer];
 }
 
 - (void)testThatStopTimerStopsTimer {
@@ -145,23 +179,26 @@
     [timerView stopTimer];
     
     // Then
-    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to stopTimer");
-    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to stopTimer");
+    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to `stopTimer`");
+    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to `stopTimer`");
+    XCTAssertEqual([timerView remainingDurationInSeconds], 0, "Timer view should have remaining seconds equal to zero after call to `stopTimer`");
 }
 
 - (void)testThatResetTimerResetsTimer {
     // Given
     JSKTimerView *timerView = [[JSKTimerView alloc] init];
+    NSInteger timerDuration = 5;
     
     // When
-    [timerView setTimerWithDuration:5];
+    [timerView setTimerWithDuration:timerDuration];
     [timerView startTimer];
     [timerView stopTimer];
     [timerView resetTimer];
     
     // Then
-    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to resetTimer");
-    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to resetTimer");
+    XCTAssertFalse(timerView.isRunning, "Timer view should not be running after call to `resetTimer`");
+    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to `resetTimer`");
+    XCTAssertEqual([timerView remainingDurationInSeconds], timerDuration, "Timer view should have remaining duration in seconds equal to total duration after call to `resetTimer`");
     
     // Cleanup
     [timerView stopTimer];
@@ -170,16 +207,18 @@
 - (void)testThatRestartTimerRestartsTimer {
     // Given
     JSKTimerView *timerView = [[JSKTimerView alloc] init];
+    NSInteger timerDuration = 5;
     
     // When
-    [timerView setTimerWithDuration:5];
+    [timerView setTimerWithDuration:timerDuration];
     [timerView startTimer];
     [timerView stopTimer];
     [timerView restartTimer];
     
     // Then
-    XCTAssertTrue(timerView.isRunning, "Timer view should running after call to restartTimer");
-    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to restartTimer");
+    XCTAssertTrue(timerView.isRunning, "Timer view should be running after call to `restartTimer`");
+    XCTAssertFalse(timerView.isFinished, "Timer view should not be finished after call to `restartTimer`");
+    XCTAssertEqual([timerView remainingDurationInSeconds], timerDuration, "Timer view should have remaining duration in seconds equal to start duration after call to `restartTimer`");
     
     // Cleanup
     [timerView stopTimer];
@@ -195,6 +234,10 @@
     id mockDelegate = OCMProtocolMock(@protocol(JSKTimerViewDelegate));
     timerView.delegate = mockDelegate;
     OCMStub([mockDelegate timerDidFinish]).andDo(^(NSInvocation *invocation) {
+        XCTAssertFalse(timerView.isRunning, "Timer view should not be running during delegate call `timerDidFinish`");
+        XCTAssertTrue(timerView.isFinished, "Timer view should be finished during delegate call `timerDidFinish`");
+        XCTAssertEqual([timerView remainingDurationInSeconds], 0, "Timer view should have zero remaining seconds during delegate call `timerDidFinish`");
+        
         [expectation fulfill];
     });
     [timerView startTimer];
@@ -202,7 +245,7 @@
     // Then
     [self waitForExpectationsWithTimeout:3.0 handler:^(NSError *error) {
         if (error) {
-            NSLog(@"Timer view did not call delegate with method timerDidFinish within expected time, got error: %@", error);
+            NSLog(@"Timer view did not call delegate with method `timerDidFinish` within expected time, got error: %@", error);
         }
         
         // Cleanup
