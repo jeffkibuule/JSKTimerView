@@ -233,7 +233,7 @@
     // When
     id mockDelegate = OCMProtocolMock(@protocol(JSKTimerViewDelegate));
     timerView.delegate = mockDelegate;
-    OCMStub([mockDelegate timerDidFinish]).andDo(^(NSInvocation *invocation) {
+    OCMStub([mockDelegate timerDidFinish:timerView]).andDo(^(NSInvocation *invocation) {
         XCTAssertFalse(timerView.isRunning, "Timer view should not be running during delegate call `timerDidFinish`");
         XCTAssertTrue(timerView.isFinished, "Timer view should be finished during delegate call `timerDidFinish`");
         XCTAssertEqual([timerView remainingDurationInSeconds], 0, "Timer view should have zero remaining seconds during delegate call `timerDidFinish`");
