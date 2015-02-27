@@ -8,9 +8,8 @@
 
 #import "JSKViewController.h"
 
-
-
 @interface JSKViewController ()
+
 @property (weak, nonatomic) IBOutlet JSKTimerView *timerView;
 
 @end
@@ -65,7 +64,7 @@
 
 #pragma mark - JSK Timer View Delegate 
 
-- (void)timerDidFinish {
+- (void)timerDidFinish:(JSKTimerView *)timerView {
     // Show an alert when timer finishes
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Timer finished!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
     [alertView show];

@@ -22,6 +22,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class JSKTimerView;
+
 /**
  `JSKTimerViewDelegate` is a protocol which a `JSKTimerView` instance will use to call timerDidFinish when the timer has finished
  */
@@ -30,7 +32,7 @@
 /**
  This delegate method is called when the timer has naturally finished (i.e. timerProgress was not manually set to 0)
  */
-- (void)timerDidFinish;
+- (void)timerDidFinish:(JSKTimerView *)timerView;
 
 @end
 

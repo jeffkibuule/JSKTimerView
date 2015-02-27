@@ -262,7 +262,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
         self.finished = YES;
         
         if (self.delegate) {
-            [self.delegate timerDidFinish];
+            [self.delegate timerDidFinish:self];
         }
     } else {
         self.remainingTimeInSeconds -= 1;
