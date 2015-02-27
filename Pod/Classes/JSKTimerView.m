@@ -98,6 +98,14 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     self.progressLayer.frame = self.bounds;
 }
 
+- (void)dealloc {
+    
+    if (_viewTimer != nil) {
+        [_viewTimer invalidate];
+        _viewTimer = nil;
+    }
+}
+
 #pragma mark - Timer methods
 
 - (void)setTimerWithDuration:(NSInteger)durationInSeconds {
