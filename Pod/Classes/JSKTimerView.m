@@ -252,6 +252,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
         [self invalidateTimer];
         
         self.viewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:self.viewTimer forMode:UITrackingRunLoopMode];
     });
 }
 
