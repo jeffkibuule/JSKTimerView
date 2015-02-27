@@ -248,9 +248,11 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 #pragma mark - Private Timer Methods
 
 - (void)startTick {
-    [self invalidateTimer];
-    
-    self.viewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self invalidateTimer];
+        
+        self.viewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+    });
 }
 
 - (void)tick:(id)sender {
